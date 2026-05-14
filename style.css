@@ -16,14 +16,13 @@ html {
 #logo-img {
   width: 110px;
   height: auto;
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
+  display: block;
 }
 
 #logo-header {
   display: flex;
   position: relative;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("/images/guitars_in_workshop_trimmed.png");
@@ -33,6 +32,7 @@ html {
   font-family: "Libre Baskerville", serif;
   min-height: 46vh;
   overflow: hidden;
+  padding: 1.25rem;
 }
 
 #logo-header::before {
@@ -70,11 +70,17 @@ html {
   text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
-#language-switcher {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
+#hero-topbar {
+  position: relative;
   z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+#language-switcher {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -333,6 +339,7 @@ body {
   margin: 0;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 section {
@@ -340,6 +347,12 @@ section {
 }
 
 @media (max-width: 900px) {
+  #logo-header {
+    min-height: 52vh;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
   #service-selection {
     grid-template-columns: 1fr;
   }
@@ -350,6 +363,10 @@ section {
 
   #fred-holding-guitar {
     width: 100%;
+  }
+
+  .gallery-container {
+    width: min(100% - 1.5rem, 1200px);
   }
 
   .gallery-image {
@@ -363,24 +380,99 @@ section {
 
 @media (max-width: 640px) {
   #logo-img {
-    width: 88px;
+    width: 74px;
+  }
+
+  #hero-topbar {
+    align-items: center;
+    margin-bottom: 1rem;
   }
 
   #language-switcher {
-    top: 1rem;
-    right: 1rem;
+    padding: 0.25rem 0.35rem;
   }
 
   #center-header {
-    padding: 0.85rem 0.95rem;
+    padding: 0.8rem 0.9rem;
     width: min(92vw, 420px);
+  }
+
+  #logo-header {
+    min-height: 46vh;
+    padding-top: 0.9rem;
+    padding-bottom: 1.5rem;
+  }
+
+  #logo-header h1 {
+    font-size: clamp(2.2rem, 9vw, 3.1rem);
+    line-height: 0.98;
+    margin-bottom: 0.55rem;
+  }
+
+  #logo-header h2 {
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
+    max-width: 20ch;
+  }
+
+  #about,
+  #services,
+  #quote-section,
+  #contact-section,
+  .gallery-container {
+    width: min(100% - 1.5rem, 760px);
+  }
+
+  #about {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  #service-selection {
+    gap: 1rem;
+  }
+
+  .service-item {
+    padding: 1.25rem 1rem;
+  }
+
+  .service-button {
+    font-size: 1.45rem;
+  }
+
+  #quote-section {
+    gap: 1.25rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .quote {
+    font-size: 2rem;
   }
 
   .gallery-container {
     gap: 0.75rem;
   }
 
+  #prev,
+  #next {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.35rem;
+  }
+
   .gallery-image {
     width: 100%;
+  }
+
+  #contact-section {
+    padding: 2.25rem 1rem;
+  }
+
+  #contact-section h2 {
+    font-size: 2rem;
+  }
+
+  #contact-section p {
+    font-size: 1rem;
   }
 }
