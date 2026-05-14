@@ -1,0 +1,386 @@
+html {
+  scroll-behavior: smooth;
+  color: white;
+  background: linear-gradient(
+    180deg,
+    #140f12 0%,
+    #1b1520 35%,
+    #0d0b0f 100%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#logo-img {
+  width: 110px;
+  height: auto;
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+}
+
+#logo-header {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/images/guitars_in_workshop_trimmed.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Libre Baskerville", serif;
+  min-height: 46vh;
+  overflow: hidden;
+}
+
+#logo-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 12, 0.28) 0%,
+    rgba(8, 8, 12, 0.42) 100%
+  );
+}
+
+#logo-header h1 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 0.75rem;
+  line-height: 0.92;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+#logo-header h2 {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+  margin: 0;
+  max-width: 24ch;
+  line-height: 1.2;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+#language-switcher {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(10, 10, 14, 0.32);
+  backdrop-filter: blur(10px);
+}
+
+#language-switcher a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.68;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+#language-switcher a[aria-current="page"] {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+#center-header {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 10, 14, 0.42);
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+#about {
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(760px, calc(100% - 3rem));
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: transparent;
+}
+
+#about h2 {
+  margin-bottom: 1.5rem;
+}
+
+#about p {
+  max-width: 700px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+#about p:first-of-type {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#about p:last-of-type {
+  opacity: 0.85;
+}
+
+#service-selection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+#services {
+  width: min(1120px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.service-button {
+  appearance: none;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0;
+  width: 100%;
+  font-size: 1.7rem;
+  font-family: "Cormorant Garamond", serif;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.service-button:hover {
+  color: #d6c27a;
+  transform: translateY(-1px);
+}
+
+.service-item {
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem;
+  background: linear-gradient(180deg, rgba(36, 30, 59, 0.72), rgba(17, 15, 28, 0.76));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+  align-self: start;
+  backdrop-filter: blur(8px);
+}
+
+.service-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(214, 194, 122, 0.44);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+}
+
+.service-description {
+  display: none;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+#quote-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: min(1120px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background-color: transparent;
+}
+
+#quote-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 520px;
+}
+
+.quote {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin: 0 0 1rem;
+}
+
+.quote-author {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+#fred-holding-guitar {
+  width: 50%;
+  border-radius: 28px;
+  object-fit: cover;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
+  height: 500px;
+}
+
+.gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+#prev,
+#next {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #111017;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#prev:hover,
+#next:hover {
+  background-color: #ffffff;
+  color: #111017;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.26);
+}
+
+.gallery-track {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.gallery-image {
+  width: calc((100% - 2rem) / 3);
+  aspect-ratio: 4 / 4.8;
+  object-fit: cover;
+  transition: opacity 0.18s ease;
+  border-radius: 22px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+.gallery-track.is-changing .gallery-image {
+  opacity: 0.25;
+}
+
+#contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: min(760px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#contact-section h2 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+#contact-section p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+@media (max-width: 900px) {
+  #service-selection {
+    grid-template-columns: 1fr;
+  }
+
+  #quote-section {
+    flex-direction: column;
+  }
+
+  #fred-holding-guitar {
+    width: 100%;
+  }
+
+  .gallery-image {
+    width: calc((100% - 1rem) / 2);
+  }
+
+  .gallery-track {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  #logo-img {
+    width: 88px;
+  }
+
+  #language-switcher {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  #center-header {
+    padding: 0.85rem 0.95rem;
+    width: min(92vw, 420px);
+  }
+
+  .gallery-container {
+    gap: 0.75rem;
+  }
+
+  .gallery-image {
+    width: 100%;
+  }
+}
