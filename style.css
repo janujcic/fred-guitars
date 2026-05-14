@@ -368,6 +368,14 @@ section {
   .gallery-container {
     width: min(100% - 1.5rem, 1200px);
   }
+  .gallery-image {
+      width: 100%;
+    }
+
+    .gallery-image:nth-child(3) {
+      display: none;
+  }
+
 
   .gallery-image {
     width: calc((100% - 1rem) / 2);
@@ -452,6 +460,15 @@ section {
   .gallery-container {
     gap: 0.75rem;
   }
+  .gallery-image {
+      width: 100%;
+    }
+
+    .gallery-image:nth-child(2),
+    .gallery-image:nth-child(3) {
+      display: none;
+  }
+
 
   #prev,
   #next {
