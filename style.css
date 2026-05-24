@@ -253,6 +253,25 @@ html {
   scroll-snap-align: start;
 }
 
+.image-text-order {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+  margin: 0 auto;
+}
+
+.image-order {
+
+  height: 500px;
+}
+
+.text-order {
+  width: 50%;
+  max-width: 520px;
+}
+
 #quote-section {
   display: flex;
   justify-content: center;
