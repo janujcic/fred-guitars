@@ -60,7 +60,7 @@ const buttons = document.querySelectorAll(".service-item button");
 buttons.forEach(function (button) {
   button.addEventListener("click", function () {
     const description = button.nextElementSibling;
-    
+
     if (description.style.display == "block") {
       description.style.display = "none";
     } else {
@@ -70,3 +70,5 @@ buttons.forEach(function (button) {
 });
 
 renderGallery();
+
+
