@@ -23,7 +23,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/guitars_in_workshop_trimmed.png");
+  background-image: url("/images/main/guitars_in_workshop_trimmed.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,9 +67,12 @@ html {
 }
 
 #hero-topbar {
-  position: relative;
+  position: absolute;
+  top: 1.25rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   z-index: 2;
-  width: 100%;
+  width: 94%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -310,8 +313,9 @@ html {
   width: 50%;
   border-radius: 28px;
   object-fit: cover;
+  object-position: top;
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
-  height: 500px;
+  height: 700px;
 }
 
 .gallery-container {

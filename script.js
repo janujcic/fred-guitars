@@ -1,9 +1,13 @@
 const images = [
-  "images/guitars_in_progress.png",
-  "images/guitars_in_workshop.png",
-  "images/holding_guitar.png",
-  "images/workshop.png",
-  "images/workshops-guitars.png"
+  "images/main/fab-ES5.jpg",
+  "images/main/2-fab-basse-5-flammed-walnut2.jpg",
+  "images/main/es330-fb-no-face.jpeg",
+  "images/main/fab-telejunior3.jpg",
+  "images/main/1-archtop-matisse1.jpg",
+  "images/main/fab-chilicaster2.jpg",
+  "images/main/rep-strat-Lserie.jpg",
+  "images/main/fab-2guitars-chaise.jpg",
+  "images/main/3-fab-basse5-4.jpg"
 ];
 
 let currentIndex = 0;
@@ -70,5 +74,4 @@ buttons.forEach(function (button) {
 });
 
 renderGallery();
-
 
