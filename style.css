@@ -132,7 +132,6 @@ html {
   margin: 0 auto;
   text-align: center;
   padding-top: 3rem;
-  padding-bottom: 3rem;
   background-color: transparent;
 }
 
@@ -233,6 +232,7 @@ html {
 .service-overview {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .service-gallery-section {
