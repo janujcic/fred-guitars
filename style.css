@@ -327,6 +327,24 @@ html {
   margin: 0 auto;
 }
 
+.service-image-order-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.gallery-track {
+  justify-content: center;
+}
+.image-text-order {
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+
 #prev,
 #next {
   appearance: none;

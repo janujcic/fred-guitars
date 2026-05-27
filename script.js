@@ -7,7 +7,8 @@ const images = [
   "images/main/fab-telejunior3.jpg",
   "images/main/fab-chilicaster2.jpg",
   "images/main/rep-strat-Lserie.jpg",
-  "images/main/fab-2guitars-chaise.jpg" 
+  "images/main/fab-2guitars-chaise.jpg",
+  "images/main/guitars-expo.jpeg"
 ];
 
 let currentIndex = 0;
@@ -74,4 +75,3 @@ buttons.forEach(function (button) {
 });
 
 renderGallery();
-

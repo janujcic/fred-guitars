@@ -9,27 +9,34 @@ const entries = {
         {text: "Rebobinage d'un micro Hofner.", images:["images/repair/rep-micro1.jpg", "images/repair/rep-micro2.jpg", "images/repair/rep-micro3.jpg", "images/repair/rep-micro4.jpg", "images/repair/restoration-hofner-173.jpg"]},
         {text: "Réparation d'un manche décollé sur Ibanez classique.", images:["images/repair/rep-manche-arrache1.jpg", "images/repair/rep-manche-arrache2.jpg"]},
         {text: "Sauvetage des mécaniques d'une Rogand.", images:["images/repair/restoration-buttons.jpg", "images/repair/restoration-buttons2.jpg"]},
-        {text: "Quelques autres customisations:", images:["images/repair/rep-elec.jpg", "images/repair/rep-pickup.jpg", "images/repair/strat-squier-jv.jpg"]}
+        {text: "Quelques autres réparations.", images:["images/repair/rep-elec.jpg", "images/repair/rep-pickup.jpg", "images/repair/strat-squier-jv.jpg"]}
     ]
 }
 
 document.querySelectorAll(".service-image-order").forEach(function (imageOrder) {
     const orderName = imageOrder.dataset.imageOrder;
-    const images = entries[orderName] || [];
+    const orderEntries = entries[orderName] || [];
 
-    images.forEach(function (imageInfo, index) {
-        const imageText = document.createElement("div");
+    orderEntries.forEach(function (entry, index) {
+        var addButtons = false;
+        if (entry.images.length > 3) {
+            addButtons = true;
+        }
+        const gallery = document.createElement("div");
+        gallery.className = "gallery-track";
+        for (let i=0; i < 3; i++) {
+            if (i == entry.images.length) break
+            const image = document.createElement("img");
+            image.src = entry.images[i];
+            image.className = "gallery-image";
+            gallery.appendChild(image);
+        }
+        const imageText = document.createElement("p");
         imageText.className = "image-text-order";
-        const text = document.createElement("p");
-        const image = document.createElement("img");
-        image.src = imageInfo.image;
-        image.alt = "Gallery image " + (index + 1);
-        image.className = "image-order";
-        text.textContent = imageInfo.text;
-        text.className = "text-order";
-        imageText.appendChild(image);
-        imageText.appendChild(text);
+        imageText.textContent = entry.text;
         imageOrder.appendChild(imageText);
+        imageOrder.appendChild(gallery);
 
+        
     });
 });
