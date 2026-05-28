@@ -419,6 +419,7 @@ section {
   width: min(1200px, calc(100% - 3rem));
   margin: 0 auto;
   padding: 0 0;
+  margin-bottom: 5rem;
 }
 
 
