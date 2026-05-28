@@ -19,9 +19,20 @@ document.querySelectorAll(".service-image-order").forEach(function (imageOrder) 
 
     orderEntries.forEach(function (entry, index) {
         var addButtons = false;
+        let prevButton;
+        let nextButton;
         if (entry.images.length > 3) {
             addButtons = true;
+            prevButton = document.createElement("button");
+            prevButton.className = "prev-button";
+            prevButton.textContent = "<";
+
+            nextButton = document.createElement("button");
+            nextButton.className = "next-button";
+            nextButton.textContent = ">";
+     
         }
+        
         const gallery = document.createElement("div");
         gallery.className = "gallery-track";
         for (let i=0; i < 3; i++) {
@@ -29,13 +40,21 @@ document.querySelectorAll(".service-image-order").forEach(function (imageOrder) 
             const image = document.createElement("img");
             image.src = entry.images[i];
             image.className = "gallery-image";
+            if (addButtons && i == 0) {
+                gallery.appendChild(prevButton);
+            }
             gallery.appendChild(image);
+            if (addButtons && i == 2) {
+                gallery.appendChild(nextButton);
+            }
         }
         const imageText = document.createElement("p");
         imageText.className = "image-text-order";
         imageText.textContent = entry.text;
         imageOrder.appendChild(imageText);
+        
         imageOrder.appendChild(gallery);
+        
 
         
     });

@@ -15,8 +15,8 @@ let currentIndex = 0;
 
 const galleryImages = document.querySelectorAll(".gallery-image");
 const galleryTrack = document.querySelector(".gallery-track");
-const prevButton = document.getElementById("prev");
-const nextButton = document.getElementById("next");
+const prevButton = document.getElementsByClassName("prev-button")[0];
+const nextButton = document.getElementsByClassName("next-button")[0];
 let isGalleryChanging = false;
 
 function renderGallery() {
