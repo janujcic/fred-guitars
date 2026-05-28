@@ -499,6 +499,37 @@ section {
   font-size: 1.2rem;
 }
 
+.contact-line {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.contact-label {
+  color: #d6c27a;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-value,
+#contact-section a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#contact-section a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(214, 194, 122, 0.26);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+#contact-section a:hover {
+  color: #e7d391;
+  border-color: rgba(231, 211, 145, 0.56);
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
