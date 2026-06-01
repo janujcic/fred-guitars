@@ -558,6 +558,7 @@ body {
 
   #fred-holding-guitar {
     width: 100%;
+    height: auto;
   }
 
   .gallery-container {
