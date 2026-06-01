@@ -425,6 +425,7 @@ section {
 
 .gallery-track {
   justify-content: center;
+  align-items: center;
 }
 .image-text-order {
   justify-content: center;
