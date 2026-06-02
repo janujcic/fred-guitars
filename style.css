@@ -66,7 +66,7 @@ section {
   color: rgba(255, 255, 255, 0.92);
   text-align: center;
   margin: 0;
-  max-width: 24ch;
+  max-width: 30ch;
   line-height: 1.2;
   text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
