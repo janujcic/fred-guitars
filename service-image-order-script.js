@@ -116,6 +116,7 @@ function createImageOrderGallery(entry, options) {
                 const image = document.createElement("img");
                 image.src = state.entry.images[imageIndex];
                 image.className = "gallery-image";
+                image.alt = state.entry.text + imageIndex;
                 state.galleryTrack.appendChild(image);
             }
 
