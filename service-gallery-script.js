@@ -306,6 +306,22 @@ const galleries = {
   ]
 };
 
+const lightboxControls = {
+  lightbox: document.getElementById("image-lightbox"),
+  lightboxImage: document.getElementById("lightbox-image"),
+  lightboxClose: document.getElementById("lightbox-close")
+};
+
+function openLightbox(src, alt) {
+  lightboxControls.lightboxImage.src = src;
+  lightboxControls.lightboxImage.alt = alt;
+  lightboxControls.lightbox.hidden = false;
+}
+
+function closeLightbox() {
+  lightboxControls.lightbox.hidden = true;
+}
+
 document.querySelectorAll(".service-gallery").forEach(function (gallery) {
   const galleryName = gallery.dataset.gallery;
   const images = galleries[galleryName] || [];
@@ -316,6 +332,31 @@ document.querySelectorAll(".service-gallery").forEach(function (gallery) {
     image.src = imageInfo.src;
     image.alt = imageInfo.alt[currentLanguage];
     image.className = "service-gallery-image";
+
+    image.addEventListener("click", function () {
+      openLightbox(image.src, image.alt);
+    });
+
     gallery.appendChild(image);
   });
+});
+
+lightboxControls.lightboxClose.addEventListener("click", closeLightbox);
+
+lightboxControls.lightbox.addEventListener("click", function (event) {
+  if (event.target === lightboxControls.lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    lightbox.hidden = true;
+  }
 });

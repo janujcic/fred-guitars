@@ -80,12 +80,43 @@ function getVisibleCount() {
     return 3;
 }
 
+const lightboxControls = {
+    lightbox: document.getElementById("image-lightbox"),
+    lightboxImage: document.getElementById("lightbox-image"),
+    lightboxClose: document.getElementById("lightbox-close")
+};
+
+function openLightbox(src, alt) {
+    lightboxControls.lightboxImage.src = src;
+    lightboxControls.lightboxImage.alt = alt;
+    lightboxControls.lightbox.hidden = false;
+}
+
+function closeLightbox() {
+    lightboxControls.lightbox.hidden = true;
+}
+
+lightboxControls.lightboxClose.addEventListener("click", closeLightbox);
+
+lightboxControls.lightbox.addEventListener("click", function (event) {
+    if (event.target === lightboxControls.lightbox) {
+        closeLightbox();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+});
+
 function createImageOrderGallery(entry, options) {
     const state = {
         entry: entry,
         galleryTrack: options.galleryTrack,
         prevButton: options.prevButton,
         nextButton: options.nextButton,
+        currentLanguage: options.currentLanguage,
         currentIndex: 0,
 
         render: function () {
@@ -116,7 +147,10 @@ function createImageOrderGallery(entry, options) {
                 const image = document.createElement("img");
                 image.src = state.entry.images[imageIndex];
                 image.className = "gallery-image";
-                image.alt = state.entry.text + imageIndex;
+                image.alt = state.entry.text[state.currentLanguage] || state.entry.text.fr;
+                image.addEventListener("click", function () {
+                    openLightbox(image.src, image.alt);
+                });
                 state.galleryTrack.appendChild(image);
             }
 
@@ -184,6 +218,7 @@ function createGallery() {
                 galleryTrack: galleryTrack,
                 prevButton: prevButton,
                 nextButton: nextButton,
+                currentLanguage: currentLanguage,
             });
             gallery.render();
             galleryInstances.push(gallery);
@@ -200,6 +235,4 @@ function createGallery() {
 }
 
 createGallery();
-
-
 

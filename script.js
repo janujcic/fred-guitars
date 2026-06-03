@@ -71,6 +71,36 @@ const images = [
   }
 ];
 
+const lightboxControls = {
+  lightbox: document.getElementById("image-lightbox"),
+  lightboxImage: document.getElementById("lightbox-image"),
+  lightboxClose: document.getElementById("lightbox-close")
+};
+
+function openLightbox(src, alt) {
+  lightboxControls.lightboxImage.src = src;
+  lightboxControls.lightboxImage.alt = alt;
+  lightboxControls.lightbox.hidden = false;
+}
+
+function closeLightbox() {
+  lightboxControls.lightbox.hidden = true;
+}
+
+lightboxControls.lightboxClose.addEventListener("click", closeLightbox);
+
+lightboxControls.lightbox.addEventListener("click", function (event) {
+  if (event.target === lightboxControls.lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
+});
+
 let currentIndex = 0;
 
 const galleryImages = document.querySelectorAll(".gallery-image");
@@ -87,6 +117,9 @@ function renderGallery() {
     const altText = images[imageIndex].alt[currentLanguage];
     image.src = images[imageIndex].image;
     image.alt = altText;
+    image.addEventListener("click", function () {
+      openLightbox(image.src, image.alt);
+    });
   });
 }
 
