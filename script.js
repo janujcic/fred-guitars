@@ -1,14 +1,74 @@
 const images = [
-  "images/main/1-archtop-matisse1.jpg",
-  "images/main/2-fab-basse-5-flammed-walnut2.jpg",
-  "images/main/3-fab-basse5-4.jpg",
-  "images/main/fab-ES5.jpg",
-  "images/main/es330-fb-no-face.jpeg",
-  "images/main/fab-telejunior3.jpg",
-  "images/main/fab-chilicaster2.jpg",
-  "images/main/rep-strat-Lserie.jpg",
-  "images/main/fab-2guitars-chaise.jpg",
-  "images/main/guitars-expo.jpeg"
+  {
+    image: "images/main/1-archtop-matisse1.jpg",
+    alt: {
+      en: "Handcrafted archtop guitar body in progress in the workshop",
+      fr: "Corps de guitare archtop artisanal en cours de fabrication dans l'atelier"
+    }
+  },
+  {
+    image: "images/main/2-fab-basse-5-flammed-walnut2.jpg",
+    alt: {
+      en: "Custom five-string bass with flamed walnut top",
+      fr: "Basse cinq cordes sur mesure avec table en noyer flamme"
+    }
+  },
+  {
+    image: "images/main/3-fab-basse5-4.jpg",
+    alt: {
+      en: "Close-up of a handcrafted five-string bass build",
+      fr: "Gros plan sur une basse cinq cordes artisanale en cours de fabrication"
+    }
+  },
+  {
+    image: "images/main/fab-ES5.jpg",
+    alt: {
+      en: "Semi-hollow custom guitar hanging during the finishing process",
+      fr: "Guitare demi-caisse sur mesure suspendue pendant la finition"
+    }
+  },
+  {
+    image: "images/main/es330-fb-no-face.jpeg",
+    alt: {
+      en: "Handcrafted ES-330 style guitar presented in the workshop",
+      fr: "Guitare de style ES-330 fabriquée artisanalement dans l'atelier"
+    }
+  },
+  {
+    image: "images/main/fab-telejunior3.jpg",
+    alt: {
+      en: "Custom Tele Junior style guitar in the workshop",
+      fr: "Guitare de style Tele Junior sur mesure dans l'atelier"
+    }
+  },
+  {
+    image: "images/main/fab-chilicaster2.jpg",
+    alt: {
+      en: "Custom electric guitar build with bright handcrafted finish",
+      fr: "Guitare electrique sur mesure avec finition artisanale coloree"
+    }
+  },
+  {
+    image: "images/main/rep-strat-Lserie.jpg",
+    alt: {
+      en: "Vintage Stratocaster under repair on the workbench",
+      fr: "Stratocaster vintage en reparation sur l'etabli"
+    }
+  },
+  {
+    image: "images/main/fab-2guitars-chaise.jpg",
+    alt: {
+      en: "Two handcrafted guitars displayed together in the workshop",
+      fr: "Deux guitares artisanales presentees ensemble dans l'atelier"
+    }
+  },
+  {
+    image: "images/main/guitars-expo.jpeg",
+    alt: {
+      en: "Collection of custom guitars displayed at an exhibition",
+      fr: "Collection de guitares sur mesure presentees lors d'une exposition"
+    }
+  }
 ];
 
 let currentIndex = 0;
@@ -20,10 +80,13 @@ const nextButton = document.getElementsByClassName("next-button")[0];
 let isGalleryChanging = false;
 
 function renderGallery() {
+  const currentLanguage = document.documentElement.lang === "en" ? "en" : "fr";
+
   galleryImages.forEach(function (image, index) {
     const imageIndex = (currentIndex + index) % images.length;
-    image.src = images[imageIndex];
-    image.alt = "Gallery image " + (imageIndex + 1);
+    const altText = images[imageIndex].alt[currentLanguage];
+    image.src = images[imageIndex].image;
+    image.alt = altText;
   });
 }
 
